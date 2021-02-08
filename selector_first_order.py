@@ -19,7 +19,7 @@ warnings.filterwarnings("ignore")
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
 NEW_DATASETS = ['Lung-Cancer', 'Movementlibras', 'Sonar']
 NEW_DATASETS2 = ['waveform-5000']
-NEW_DATASETS3 = ['UAV1', 'UAV2', 'UAV3']
+NEW_DATASETS3 = ['UAV1', 'UAV2']
 NEW_DATASETS6 = ['UJIndoorLoc']
 DATASETS = ['COIL20', 'ORL', 'colon', 'madelon', 'Lung-Cancer', 'Movementlibras', 'Sonar', 'waveform-5000', 'UAV1', 'UAV2', 'UJIndoorLoc', 'nci9']
 LEARNING_RATE = 1e-4

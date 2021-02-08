@@ -9,7 +9,7 @@ from torch.utils.data.sampler import Sampler
 
 NEW_DATASETS = ['Lung-Cancer', 'Movementlibras', 'Sonar']
 NEW_DATASETS2 = ['waveform-5000']
-NEW_DATASETS3 = ['UAV1', 'UAV2', 'UAV3']
+NEW_DATASETS3 = ['UAV1', 'UAV2']
 NEW_DATASETS6 = ['UJIndoorLoc']
 
 
@@ -55,7 +55,7 @@ def load_dataset(dataset):
         y, NUM_CLASSES = encode2onehot(y)
     elif dataset in NEW_DATASETS3:
         arrays = {}
-        f = h5py.File('data/%s.mat' % dataset, 'r')
+        f = h5py.File('datasets/%s.mat' % dataset, 'r')
         train_data = np.array(f['data_tr'])
         test_data = np.array(f['data_te'])
         X = np.concatenate((train_data,test_data),axis=1).T
@@ -70,7 +70,7 @@ def load_dataset(dataset):
         X = np.array(X)
         y, NUM_CLASSES = encode2onehot(y)
     else:
-        mat = io.loadmat('data/%s.mat' % dataset)
+        mat = io.loadmat('datasets/%s.mat' % dataset)
         X = mat['X']    # data
         X = X.astype(float)
         y = mat['Y']    # label

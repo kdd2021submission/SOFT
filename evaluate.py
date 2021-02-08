@@ -3,7 +3,7 @@ from sklearn.cluster import KMeans
 from skfeature.utility import unsupervised_evaluation
 from util import load_dataset
 import nxmetis
-import pymetis
+# import pymetis
 import numpy as np
 import networkx as nx
 import gc
@@ -20,7 +20,8 @@ DATASETS = ['COIL20', 'ORL', 'colon', 'madelon', 'Lung-Cancer', 'Movementlibras'
 
 NUM_SELECT = [0.05, 0.1, 0.15, 0.2, 0.25, 0.3]
 SELECT_PER_CLUSTER = 1
-
+OUTLIER_PERCENT = 0.1
+SET_ZERO_PERCENT = 0.5
 
 parser = argparse.ArgumentParser()
 parser.add_argument('-a', '--alpha', type=float, required=False, default=1.0)
@@ -44,7 +45,7 @@ def main(DATASET, select_k):
 
 
     adj = adj - adj * np.eye(adj.shape[0])
-    top_k = int(adj.shape[0] * adj.shape[0] - (adj.shape[0] * adj.shape[0] - adj.shape[0]) * (1 - 0.5))
+    top_k = int(adj.shape[0] * adj.shape[0] - (adj.shape[0] * adj.shape[0] - adj.shape[0]) * (1 - SET_ZERO_PERCENT))
     median = np.sort(adj,axis=None)[top_k]
     # median = 0
     adj[adj <= median] = 0
@@ -53,7 +54,7 @@ def main(DATASET, select_k):
     delete_list = []
 
     # method 1 for outlier
-    for i in range(int(num_features * 0.1)):
+    for i in range(int(num_features * OUTLIER_PERCENT)):
         index = np.argmin(row_sum)
         row_sum[index] = np.inf
         delete_list.append(index)

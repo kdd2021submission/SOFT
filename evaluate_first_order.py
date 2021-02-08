@@ -3,7 +3,7 @@ from sklearn.cluster import KMeans
 from skfeature.utility import unsupervised_evaluation
 from util import load_dataset
 import nxmetis
-import pymetis
+# import pymetis
 import numpy as np
 import networkx as nx
 import gc

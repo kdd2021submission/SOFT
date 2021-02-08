@@ -4,7 +4,7 @@ This repository contains the python implementation for paper "Second-Order Unsup
 
 ## Paper Abstract
 
-Unsupervised feature selection aims to select a subset from the original features that are most useful for the downstream tasks without external guidance information. While most unsupervised feature selection methods focus on ranking features based on the intrinsic properties of data, they do not pay much attention to the relationships between features, which often leads to redundancy among the selected features. In this paper, we propose a two-stage \underline{S}econd-\underline{O}rder unsupervised \underline{F}eature selection via knowledge contrastive dis\underline{T}illation (SOFT) model that incorporates the second-order covariance matrix with the first-order data matrix for unsupervised feature selection. In the first stage, we learn a sparse attention matrix that can represent second-order relations between features. In the second stage, we build a relational graph based on the learned attention matrix and adopt graph segmentation for feature selection. Experimental results on 12 public datasets demonstrate the effectiveness of our proposed method.
+Unsupervised feature selection aims to select a subset from the original features that are most useful for the downstream tasks without external guidance information. While most unsupervised feature selection methods focus on ranking features based on the intrinsic properties of data, they do not pay much attention to the relationships between features, which often leads to redundancy among the selected features. In this paper, we propose a two-stage Second-Order unsupervised Feature selection via knowledge contrastive disTillation (SOFT) model that incorporates the second-order covariance matrix with the first-order data matrix for unsupervised feature selection. In the first stage, we learn a sparse attention matrix that can represent second-order relations between features. In the second stage, we build a relational graph based on the learned attention matrix and adopt graph segmentation for feature selection. Experimental results on 12 public datasets demonstrate the effectiveness of our proposed method.
 
 ## Requirements
 
@@ -52,7 +52,7 @@ Unsupervised feature selection aims to select a subset from the original feature
 * [NSSLFS](https://www.sciencedirect.com/science/article/pii/S092523121930027X?casa_token=E2J3Yx3bexMAAAAA:oOyvpQlSRKGz_Ozwo6f_mUtQx_w9BNFwTCkGoKJXdLeMw4_aRF4M_QiwznQKReCTes7QXHEP0Xkm)
 * [TSFS](https://www.sciencedirect.com/science/article/pii/S0925231219317199?casa_token=igdE-RDgDMgAAAAA:Lkino7Y6c8Dv8gg7NL5vUl7_uYD0XxN5qokyZVfsZyULjdgcuh-G83jclwFcECe-_uQJM6_6-cyC)
 
-## Parameter Setting
+## Parameter Settings
 
 In the first stage by `selector.py`, hyperparameters are set as follows:
 * `alpha` = 1.0
@@ -65,7 +65,7 @@ In the second stage by `evaluate.py`, hyperparameters are set as follows:
 * `OUTLIER_PERCENT` = 0.1
 * `SET_ZERO_PERCENT` = 0.5
 
-## Parameter Setting
+## How to Run
 
 In the first stage, SOFT learns the second-order feature relation matrix by running:
 ```bash

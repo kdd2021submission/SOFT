@@ -1,3 +1,5 @@
+# Claim: Part of this file is from https://github.com/facebookresearch/deepcluster/blob/master/clustering.py
+
 import time
 import faiss
 import numpy as np
